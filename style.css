@@ -23,6 +23,20 @@ body {
     color: white;
 }
 
+/* Estilo para el mensaje de bienvenida */
+#welcomemessage {
+    text-align: center;
+    padding: 2% 0; /* Padding superior e inferior en porcentaje */
+    color: #484848;
+}
+
+/* Estilo para el mensaje de error */
+#errormessage {
+    text-align: center;
+    padding: 1% 0; /* Padding superior e inferior en porcentaje */
+    color: #b81313;
+}
+
 /* Estilo para las secciones */
 section {
     margin: 2% auto; /* Margen superior e inferior en porcentaje */
