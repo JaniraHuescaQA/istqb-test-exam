@@ -37,6 +37,13 @@ body {
     color: #b81313;
 }
 
+/* Estilo para la puntuación de la respuesta */
+#grademessage {
+    text-align: center;
+    padding: 1% 0; /* Padding superior e inferior en porcentaje */
+    color: #00695c;
+}
+
 /* Estilo para las secciones */
 section {
     margin: 2% auto; /* Margen superior e inferior en porcentaje */
@@ -114,6 +121,28 @@ button {
 /* Cambio de color en el hover del botón */
 button:hover {
     background-color: #388e3c; /* Verde oscuro */
+}
+
+#examform {
+    text-align: left;
+}
+
+.radio-option {
+    display: grid; /* Usamos grid para controlar mejor la alineación */
+    grid-template-columns: auto 1fr; /* Primera columna para el botón, segunda para el texto */
+    align-items: start; /* Asegura la alineación superior del texto largo */
+    column-gap: 10px; /* Espaciado entre el botón y el texto */
+    margin-bottom: 10px; /* Espaciado entre las opciones */
+}
+
+.radio-option input[type="radio"] {
+    justify-self: start; /* Fuerza que el botón quede pegado al margen izquierdo */
+}
+
+.radio-option label {
+    margin: 0; /* Eliminamos márgenes extra */
+    text-align: left; /* Asegura que el texto esté alineado a la izquierda */
+    white-space: normal; /* Permite saltos de línea para textos largos */
 }
 
 /* Estilo para el pie de página */

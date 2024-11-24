@@ -10,32 +10,55 @@
 
 <body>
     <section id="header">
-        <h1>ISTQB Online Exam</h1>
+        <h1>ISTQB® Certified Tester Foundation Level (CTFL) v4.0</h1>
         <p>Developed with HTML5, CSS3 and Javascript!</p>
     </section>
-    
+
     <section id="signup">
-        <h2>ISTQB Exam Sign Up</h2>
         <form id="signupform">
-            <input type="text" id="firstname"  placeholder="First name" pattern="[A-Za-z ]+" minlength="3" maxlength="30" required>
-            <input type="text" id="lastname"  placeholder="Last name" pattern="[A-Za-z ]+" minlength="3" maxlength="30" required>
+            <h2>ISTQB Exam Sign Up</h2>
+            <input type="text" id="firstname" placeholder="First name" pattern="[A-Za-z ]+" minlength="3" maxlength="30"
+                required>
+            <input type="text" id="lastname" placeholder="Last name" pattern="[A-Za-z ]+" minlength="3" maxlength="30"
+                required>
             <button type="button" onclick="signUpStudentValidation()">Sign Up</button>
             <div id="errormessage"></div>
         </form>
-     </section>
-    
-     <div id="welcomemessage"></div>
+        <div id="welcomemessage"></div>
+    </section>
 
-     <section id="exam">
-        <h2>Exam</h2>
-        
-     </section>
-      
+    <section id="exam">
+        <form id="examform">
+            <h2>ISTQB Exam</h2>
+            <p id="question1">#1. Which of the following statements describe a valid test objective?</p>
+            <div class="radio-option">
+                <input type="radio" name="question1answers" id="a" value="A">
+                <label for="a">A. To prove that there are no unfixed defects in the system under test</label>
+            </div>
+            <div class="radio-option">
+                <input type="radio" name="question1answers" id="b" value="B">
+                <label for="b">B. To prove that there will be no failures after the implementation of the system into
+                    production</label>
+            </div>
+            <div class="radio-option">
+                <input type="radio" name="question1answers" id="c" value="C">
+                <label for="c">C. To reduce the risk level of the test object and to build confidence in the quality
+                    level</label>
+            </div>
+            <div class="radio-option">
+                <input type="radio" name="question1answers" id="default" value="DEFAULT">
+                <label for="default">No answer</label>
+            </div>
+            <button type="button" onclick="gradeQuestion()">Grade</button>
+        </form>
+        <div id="grademessage"></div>
+    </section>
+
     <footer>
         <p>Author:</p>
     </footer>
 
-    
+
     <script src="script.js"></script>
 </body>
 
