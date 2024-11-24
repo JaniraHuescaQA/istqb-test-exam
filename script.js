@@ -153,35 +153,47 @@ function validateNameFields(firstName, lastName) {
 
 // FUNCTIONS FOR USER STORY ITE-2 (Correct exam with 1 question)
 
+/**
+ * Grade the user's answer and update the score.
+ */
 function gradeQuestion() {
-    // Save the correct answer
-    const CORRECT_ANSWER = "C";
+    const CORRECT_ANSWER = "C"; // Correct answer
+    let userAnswer = getCheckedAnswer("question1answers"); // User's selected answer
+    const score = calculateScore(userAnswer, CORRECT_ANSWER); // Determine score
+    hideElement("examform"); // Hide the exam form
+    displayScore(score); // Show the score
+}
 
-    // Save the chosen answer
-    let userAnswer = document.querySelector('input[name="question1answers"]:checked');
+/**
+ * Get the selected answer from a group of radio buttons.
+ * @param {string} questionName - The name attribute of the radio button group.
+ * @returns {string|null} The value of the selected answer, or null if none selected.
+ */
+function getCheckedAnswer(questionName) {
+    const selectedOption = document.querySelector(`input[name="${questionName}"]:checked`);
+    return selectedOption ? selectedOption.value : null;
+}
 
-    // Save the grade message
-    let gradeMessage = document.getElementById("grademessage");
-
-    // Calculate the score
-    let score;
-    if (userAnswer === null) {
-        score = 0;
-        gradeMessage.textContent = "0";
-    } else if (userAnswer.value === CORRECT_ANSWER) {
-        score = 2;
-        gradeMessage.textContent = "2";
-    } else if (userAnswer.value === "DEFAULT") {
-        score = 0;
-        gradeMessage.textContent = "0";
-    } else if (userAnswer.value != CORRECT_ANSWER) {
-        score = -1
-        gradeMessage.textContent = "-1";
+/**
+ * Calculate the score based on the user's answer.
+ * @param {string|null} userAnswer - The user's selected answer.
+ * @param {string} correctAnswer - The correct answer.
+ * @returns {number} The calculated score.
+ */
+function calculateScore(userAnswer, correctAnswer) {
+    if (!userAnswer || userAnswer === "DEFAULT") {
+        return 0; // No answer or default answer
     }
+    if (userAnswer === correctAnswer) {
+        return 2; // Correct answer
+    }
+    return -1; // Incorrect answer
+}
 
-    // Hide the exam form
-    hideElement("examform");
-
-    // Show the score obtained
-    gradeMessage.textContent = "Score: " + score;
+/**
+ * Display the score in the grade message element.
+ * @param {number} score - The score to display.
+ */
+function displayScore(score) {
+    setTextContent("grademessage", `Score: ${score}`);
 }
