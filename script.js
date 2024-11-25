@@ -151,19 +151,30 @@ function validateNameFields(firstName, lastName) {
 }
 
 
-// FUNCTIONS FOR USER STORY ITE-2 (Correct exam with 1 question)
+// FUNCTIONS FOR USER STORY ITE-3 (Correct exam with 10 questions)
 
 /**
- * Grade the user's answer and update the score.
+ * Grade all questions by iterating through them.
  */
-function gradeQuestion() {
-    const CORRECT_ANSWER = "C"; // Correct answer
-    let userAnswer = getCheckedAnswer("question1answers"); // User's selected answer
-    const score = calculateScore(userAnswer, CORRECT_ANSWER); // Determine score
-    hideElement("examform"); // Hide the exam form
-    displayScore(score); // Show the score
+function finishExam() {
+    const CORRECT_ANSWERS = ["C", "A", "A", "B", "C", "C", "A", "C", "A", "A"];
+    for (let i = 1; i <= CORRECT_ANSWERS.length; i++) {
+        gradeQuestion(i, CORRECT_ANSWERS[i - 1]);
+    }
 }
 
+/**
+ * Grade a single question and update the score for that question.
+ * @param {number} questionNumber - The number of the question to grade.
+ * @param {string} correctAnswer - The correct answer for this question.
+ */
+function gradeQuestion(questionNumber, correctAnswer) {
+    const userAnswer = getCheckedAnswer(`questionanswers${questionNumber}`);
+    const score = calculateScore(userAnswer, correctAnswer);
+    displayScore(questionNumber, score);
+}
+
+// FUNCTIONS FOR USER STORY ITE-2 AND USER STORY ite-3 (Correct exam with 1 or 10 question)
 /**
  * Get the selected answer from a group of radio buttons.
  * @param {string} questionName - The name attribute of the radio button group.
@@ -194,22 +205,35 @@ function calculateScore(userAnswer, correctAnswer) {
  * Display the score in the grade message element.
  * @param {number} score - The score to display.
  */
-function displayScore(score) {
-    setTextContent("grademessage", `Score: ${score}`);
+function displayScore(questionNumber, score) {
+    setTextContent(`grademessage${questionNumber}`, `Score for question ${questionNumber}: ${score}`);
 }
 
 /**
- * Reset the exam form by clearing selected answers and resetting the grade message.
+ * Reset the selected answer for a specific question.
+ * @param {number} questionNumber - The question number to reset.
  */
-function resetAnswer() {
-    // Get all radio buttons in the exam form
-    const RADIOS = document.querySelectorAll('input[type="radio"]');
+function resetAnswer(questionNumber) {
+    // Get all radio buttons for the specific question
+    const radios = document.querySelectorAll(`input[name="questionanswers${questionNumber}"]`);
 
-    // Uncheck all radio buttons using a traditional function
+    // Uncheck all radio buttons
+    radios.forEach(radio => (radio.checked = false));
+
+    // Clear the grade message for this question
+    setTextContent(`grademessage${questionNumber}`, "");
+}
+
+/*
+ * Reset the exam form by clearing selected answers and resetting grade messages.
+function resetExam() {
+    const RADIOS = document.querySelectorAll('input[type="radio"]');
     RADIOS.forEach(function (radio) {
         radio.checked = false;
     });
 
-    // Clear the grade message
-    setTextContent("grademessage", "");
+    for (let i = 1; i <= 10; i++) {
+        setTextContent(`grademessage${i}`, "");
+    }
 }
+ */
