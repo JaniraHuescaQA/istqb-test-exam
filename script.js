@@ -162,7 +162,6 @@ function gradeQuestion() {
     const score = calculateScore(userAnswer, CORRECT_ANSWER); // Determine score
     hideElement("examform"); // Hide the exam form
     displayScore(score); // Show the score
-}
 
 /**
  * Get the selected answer from a group of radio buttons.
