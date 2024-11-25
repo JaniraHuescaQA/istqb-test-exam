@@ -162,54 +162,54 @@ function gradeQuestion() {
     const score = calculateScore(userAnswer, CORRECT_ANSWER); // Determine score
     hideElement("examform"); // Hide the exam form
     displayScore(score); // Show the score
+}
 
-    /**
-     * Get the selected answer from a group of radio buttons.
-     * @param {string} questionName - The name attribute of the radio button group.
-     * @returns {string|null} The value of the selected answer, or null if none selected.
-     */
-    function getCheckedAnswer(questionName) {
-        const selectedOption = document.querySelector(`input[name="${questionName}"]:checked`);
-        return selectedOption ? selectedOption.value : null;
+/**
+ * Get the selected answer from a group of radio buttons.
+ * @param {string} questionName - The name attribute of the radio button group.
+ * @returns {string|null} The value of the selected answer, or null if none selected.
+ */
+function getCheckedAnswer(questionName) {
+    const selectedOption = document.querySelector(`input[name="${questionName}"]:checked`);
+    return selectedOption ? selectedOption.value : null;
+}
+
+/**
+ * Calculate the score based on the user's answer.
+ * @param {string|null} userAnswer - The user's selected answer.
+ * @param {string} correctAnswer - The correct answer.
+ * @returns {number} The calculated score.
+ */
+function calculateScore(userAnswer, correctAnswer) {
+    if (!userAnswer) {
+        return 0; // No answer
     }
-
-    /**
-     * Calculate the score based on the user's answer.
-     * @param {string|null} userAnswer - The user's selected answer.
-     * @param {string} correctAnswer - The correct answer.
-     * @returns {number} The calculated score.
-     */
-    function calculateScore(userAnswer, correctAnswer) {
-        if (!userAnswer) {
-            return 0; // No answer
-        }
-        if (userAnswer === correctAnswer) {
-            return 2; // Correct answer
-        }
-        return -1; // Incorrect answer
+    if (userAnswer === correctAnswer) {
+        return 2; // Correct answer
     }
+    return -1; // Incorrect answer
+}
 
-    /**
-     * Display the score in the grade message element.
-     * @param {number} score - The score to display.
-     */
-    function displayScore(score) {
-        setTextContent("grademessage", `Score: ${score}`);
-    }
+/**
+ * Display the score in the grade message element.
+ * @param {number} score - The score to display.
+ */
+function displayScore(score) {
+    setTextContent("grademessage", `Score: ${score}`);
+}
 
-    /**
-     * Reset the exam form by clearing selected answers and resetting the grade message.
-     */
-    function resetAnswer() {
-        // Get all radio buttons in the exam form
-        const RADIOS = document.querySelectorAll('input[type="radio"]');
+/**
+ * Reset the exam form by clearing selected answers and resetting the grade message.
+ */
+function resetAnswer() {
+    // Get all radio buttons in the exam form
+    const RADIOS = document.querySelectorAll('input[type="radio"]');
 
-        // Uncheck all radio buttons using a traditional function
-        RADIOS.forEach(function (radio) {
-            radio.checked = false;
-        });
+    // Uncheck all radio buttons using a traditional function
+    RADIOS.forEach(function (radio) {
+        radio.checked = false;
+    });
 
-        // Clear the grade message
-        setTextContent("grademessage", "");
-    }
+    // Clear the grade message
+    setTextContent("grademessage", "");
 }
