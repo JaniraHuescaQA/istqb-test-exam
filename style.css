@@ -108,19 +108,46 @@ form p {
 
 /* Estilo para los botones */
 button {
-    padding: 10px;
+    padding: 12px;
     background-color: #4caf50; /* Verde claro */
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-    width: 100%; /* Hace que el botón ocupe todo el ancho disponible */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Efecto suave */
+    width: 25%; 
+    text-align: center;
+    margin: 10px auto; /* Espaciado vertical y centrado */
+    display: block; /* Centra los botones */
 }
 
 /* Cambio de color en el hover del botón */
 button:hover {
+    font-weight: bold;
     background-color: #388e3c; /* Verde oscuro */
+    transform: scale(1.05); /* Pequeño efecto de agrandamiento */
+}
+
+/* Efecto al hacer clic */
+button:active {
+    background-color: #3a7e3d; /* Verde más oscuro */
+    transform: scale(0.95); /* Reducción para un efecto de clic */
+}
+
+
+/* Estilo para el botón 'Reset' */
+button.reset-btn {
+    background-color: #ff5722; /* Naranja atractivo */
+}
+
+/* Cambio de color en hover */
+button.reset-btn:hover {
+    background-color: #e64a19; /* Naranja más oscuro */
+}
+
+/* Color más oscuro al hacer clic al botón 'Reset' */
+button.reset-btn:active {
+    background-color: #d84315; 
 }
 
 #examform {

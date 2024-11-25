@@ -181,8 +181,8 @@ function getCheckedAnswer(questionName) {
  * @returns {number} The calculated score.
  */
 function calculateScore(userAnswer, correctAnswer) {
-    if (!userAnswer || userAnswer === "DEFAULT") {
-        return 0; // No answer or default answer
+    if (!userAnswer) {
+        return 0; // No answer
     }
     if (userAnswer === correctAnswer) {
         return 2; // Correct answer
@@ -196,4 +196,20 @@ function calculateScore(userAnswer, correctAnswer) {
  */
 function displayScore(score) {
     setTextContent("grademessage", `Score: ${score}`);
+}
+
+/**
+ * Reset the exam form by clearing selected answers and resetting the grade message.
+ */
+function resetAnswer() {
+    // Get all radio buttons in the exam form
+    const RADIOS = document.querySelectorAll('input[type="radio"]');
+
+    // Uncheck all radio buttons using a traditional function
+    RADIOS.forEach(function (radio) {
+        radio.checked = false;
+    });
+
+    // Clear the grade message
+    setTextContent("grademessage", "");
 }
