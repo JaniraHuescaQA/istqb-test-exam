@@ -138,6 +138,7 @@ button:active {
 /* Estilo para el botón 'Reset' */
 button.reset-btn {
     background-color: #ff5722; /* Naranja atractivo */
+    margin-bottom: 30px;
 }
 
 /* Cambio de color en hover */
