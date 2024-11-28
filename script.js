@@ -24,27 +24,6 @@ function showElement(elementId) {
     }
 }
 
-/**
- * Show a temporary message in an element, then hide it after a duration.
- * @param {string} elementId - The ID of the element to display the message.
- * @param {number} duration - The duration (in milliseconds) to show the message.
- * @param {function} callback - A callback function to execute after hiding the message.
- */
-function showTemporaryMessage(elementId, duration, callback) {
-    const ELEMENT = document.getElementById(elementId);
-
-    if (ELEMENT) {
-        ELEMENT.style.display = "block";
-
-        // Hide the element after the specified duration (in milliseconds)
-        setTimeout(function () {
-            ELEMENT.style.display = "none";
-            if (callback) {
-                callback();
-            }
-        }, duration);
-    }
-}
 
 /**
  * Get an HTML element by ID.
@@ -85,6 +64,7 @@ function setTextContent(elementId, text) {
 
 
 // FUNCTIONS FOR USER STORY ITE-1 (Sign up student)
+
 // Hide the exam section
 hideElement("exam");
 
@@ -115,11 +95,7 @@ function signUpStudent(firstName, lastName) {
     const WELCOME_MESSAGE = `Welcome to the ISTQB Exam, ${firstName} ${lastName}`.toUpperCase();
     setTextContent("welcomemessage", WELCOME_MESSAGE);
 
-    // Show the welcome message temporarily and then hide the signup section and show the exam section
-    showTemporaryMessage("welcomemessage", 3000, function () {
-        hideElement("signup");
-        showElement("exam");
-    });
+    showElement("exam");
 }
 
 /**
