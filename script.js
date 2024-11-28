@@ -129,6 +129,8 @@ function validateNameFields(firstName, lastName) {
 
 // FUNCTIONS FOR USER STORY ITE-3 (Correct exam with 10 questions)
 
+let examScore = 0; 
+
 /**
  * Grade all questions by iterating through them.
  */
@@ -137,6 +139,8 @@ function finishExam() {
     for (let i = 1; i <= CORRECT_ANSWERS.length; i++) {
         gradeQuestion(i, CORRECT_ANSWERS[i - 1]);
     }
+    const finalScore = calculateFinalScore(examScore);
+    displayFinalScore(finalScore);
 }
 
 /**
@@ -146,11 +150,12 @@ function finishExam() {
  */
 function gradeQuestion(questionNumber, correctAnswer) {
     const userAnswer = getCheckedAnswer(`questionanswers${questionNumber}`);
-    const score = calculateScore(userAnswer, correctAnswer);
-    displayScore(questionNumber, score);
+    const questionScore = calculateQuestionScore(userAnswer, correctAnswer);
+    examScore += questionScore;
+    displayQuestionScore(questionNumber, questionScore);
 }
 
-// FUNCTIONS FOR USER STORY ITE-2 AND USER STORY ite-3 (Correct exam with 1 or 10 question)
+// FUNCTIONS FOR USER STORY ITE-2 AND USER STORY ITE-3 (Correct exam with 1 or 10 question)
 /**
  * Get the selected answer from a group of radio buttons.
  * @param {string} questionName - The name attribute of the radio button group.
@@ -167,7 +172,7 @@ function getCheckedAnswer(questionName) {
  * @param {string} correctAnswer - The correct answer.
  * @returns {number} The calculated score.
  */
-function calculateScore(userAnswer, correctAnswer) {
+function calculateQuestionScore(userAnswer, correctAnswer) {
     if (!userAnswer) {
         return 0; // No answer
     }
@@ -181,7 +186,7 @@ function calculateScore(userAnswer, correctAnswer) {
  * Display the score in the grade message element.
  * @param {number} score - The score to display.
  */
-function displayScore(questionNumber, score) {
+function displayQuestionScore(questionNumber, score) {
     setTextContent(`grademessage${questionNumber}`, `Score for question ${questionNumber}: ${score}`);
 }
 
@@ -198,6 +203,16 @@ function resetAnswer(questionNumber) {
 
     // Clear the grade message for this question
     setTextContent(`grademessage${questionNumber}`, "");
+}
+
+function calculateFinalScore(examScore) {
+    if (examScore < 0) {
+        return 0;
+    } else return examScore;
+}
+
+function displayFinalScore(finalScore) {
+    setTextContent("gradeexammessage", `Exam score: ${finalScore}`);
 }
 
 /*
