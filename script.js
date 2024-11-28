@@ -129,17 +129,19 @@ function validateNameFields(firstName, lastName) {
 
 // FUNCTIONS FOR USER STORY ITE-3 (Correct exam with 10 questions)
 
-let examScore = 0; 
-
 /**
  * Grade all questions by iterating through them.
  */
 function finishExam() {
     const CORRECT_ANSWERS = ["C", "A", "A", "B", "C", "C", "A", "C", "A", "A"];
+    let examScore = 0; // Reset the score for each attempt
+
     for (let i = 1; i <= CORRECT_ANSWERS.length; i++) {
-        gradeQuestion(i, CORRECT_ANSWERS[i - 1]);
+        let questionScore = gradeQuestion(i, CORRECT_ANSWERS[i - 1]);
+        examScore += questionScore;
     }
-    const finalScore = calculateFinalScore(examScore);
+
+    let finalScore = calculateFinalScore(examScore);
     displayFinalScore(finalScore);
 }
 
@@ -147,12 +149,13 @@ function finishExam() {
  * Grade a single question and update the score for that question.
  * @param {number} questionNumber - The number of the question to grade.
  * @param {string} correctAnswer - The correct answer for this question.
+ * @returns {number} The score for the question.
  */
 function gradeQuestion(questionNumber, correctAnswer) {
     const userAnswer = getCheckedAnswer(`questionanswers${questionNumber}`);
     const questionScore = calculateQuestionScore(userAnswer, correctAnswer);
-    examScore += questionScore;
     displayQuestionScore(questionNumber, questionScore);
+    return questionScore;
 }
 
 // FUNCTIONS FOR USER STORY ITE-2 AND USER STORY ITE-3 (Correct exam with 1 or 10 question)
@@ -205,12 +208,21 @@ function resetAnswer(questionNumber) {
     setTextContent(`grademessage${questionNumber}`, "");
 }
 
+/**
+ * Calculate the final exam score, ensuring no negative values.
+ * @param {number} examScore - The raw exam score.
+ * @returns {number} The final score.
+ */
 function calculateFinalScore(examScore) {
     if (examScore < 0) {
         return 0;
     } else return examScore;
 }
 
+/**
+ * Display the final exam score.
+ * @param {number} finalScore - The final score to display.
+ */
 function displayFinalScore(finalScore) {
     setTextContent("gradeexammessage", `Exam score: ${finalScore}`);
 }
