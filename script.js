@@ -24,7 +24,6 @@ function showElement(elementId) {
     }
 }
 
-
 /**
  * Get an HTML element by ID.
  * @param {string} elementId - The ID of the element to retrieve.
@@ -57,8 +56,22 @@ function getInputValue(inputId) {
  */
 function setTextContent(elementId, text) {
     const ELEMENT = getElement(elementId);
+
     if (ELEMENT) {
         ELEMENT.textContent = text;
+    }
+}
+
+/**
+ * Set text color for an HTML element.
+ * @param {string} elementId - The ID of the element.
+ * @param {string} color - The color to set.
+ */
+function setTextColor(elementId, color) {
+    const ELEMENT = getElement(elementId);
+
+    if (ELEMENT) {
+        ELEMENT.style.color = color;
     }
 }
 
@@ -127,7 +140,7 @@ function validateNameFields(firstName, lastName) {
 }
 
 
-// FUNCTIONS FOR USER STORY ITE-3 (Correct exam with 10 questions)
+// FUNCTIONS FOR USER STORY ITE-3, ITE-4 and ITE-5
 
 /**
  * Grade all questions by iterating through them.
@@ -137,12 +150,12 @@ function finishExam() {
     let examScore = 0; // Reset the score for each attempt
 
     for (let i = 1; i <= CORRECT_ANSWERS.length; i++) {
-        let questionScore = gradeQuestion(i, CORRECT_ANSWERS[i - 1]);
-        examScore += questionScore;
+        const QUESTION_SCORE = gradeQuestion(i, CORRECT_ANSWERS[i - 1]);
+        examScore += QUESTION_SCORE;
     }
 
-    let finalScore = calculateFinalScore(examScore);
-    displayFinalScore(finalScore);
+    const FINAL_SCORE = calculateFinalScore(examScore);
+    displayFinalScore(FINAL_SCORE);
 }
 
 /**
@@ -152,10 +165,10 @@ function finishExam() {
  * @returns {number} The score for the question.
  */
 function gradeQuestion(questionNumber, correctAnswer) {
-    const userAnswer = getCheckedAnswer(`questionanswers${questionNumber}`);
-    const questionScore = calculateQuestionScore(userAnswer, correctAnswer);
-    displayQuestionScore(questionNumber, questionScore);
-    return questionScore;
+    const USER_ANSWER = getCheckedAnswer(`questionanswers${questionNumber}`);
+    const QUESTION_SCORE = calculateQuestionScore(USER_ANSWER, correctAnswer);
+    displayQuestionScore(questionNumber, QUESTION_SCORE);
+    return QUESTION_SCORE;
 }
 
 // FUNCTIONS FOR USER STORY ITE-2 AND USER STORY ITE-3 (Correct exam with 1 or 10 question)
@@ -165,7 +178,7 @@ function gradeQuestion(questionNumber, correctAnswer) {
  * @returns {string|null} The value of the selected answer, or null if none selected.
  */
 function getCheckedAnswer(questionName) {
-    const selectedOption = document.querySelector(`input[name="${questionName}"]:checked`);
+    let selectedOption = document.querySelector(`input[name="${questionName}"]:checked`);
     return selectedOption ? selectedOption.value : null;
 }
 
@@ -199,10 +212,10 @@ function displayQuestionScore(questionNumber, score) {
  */
 function resetAnswer(questionNumber) {
     // Get all radio buttons for the specific question
-    const radios = document.querySelectorAll(`input[name="questionanswers${questionNumber}"]`);
+    const RADIOS = document.querySelectorAll(`input[name="questionanswers${questionNumber}"]`);
 
     // Uncheck all radio buttons
-    radios.forEach(radio => (radio.checked = false));
+    RADIOS.forEach(radio => (radio.checked = false));
 
     // Clear the grade message for this question
     setTextContent(`grademessage${questionNumber}`, "");
@@ -224,7 +237,14 @@ function calculateFinalScore(examScore) {
  * @param {number} finalScore - The final score to display.
  */
 function displayFinalScore(finalScore) {
-    setTextContent("gradeexammessage", `Exam score: ${finalScore}`);
+    const PASS_MARK = 12;
+    if (finalScore >= PASS_MARK) {
+        setTextContent("gradeexammessage", `Exam score: ${finalScore}. PASS`);
+        setTextColor("gradeexammessage", "green");
+    } else {
+        setTextContent("gradeexammessage", `Exam score: ${finalScore}. FAIL`);
+        setTextColor("gradeexammessage", "red");
+    }
 }
 
 /*
