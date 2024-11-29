@@ -140,7 +140,7 @@ function validateNameFields(firstName, lastName) {
 }
 
 
-// FUNCTIONS FOR USER STORY ITE-3, ITE-4 and ITE-5
+// FUNCTIONS FOR USER STORY ITE-2 AND USER STORY ITE-3 (Correct exam with 1 and 10 questions)
 
 /**
  * Grade all questions by iterating through them.
@@ -171,7 +171,6 @@ function gradeQuestion(questionNumber, correctAnswer) {
     return QUESTION_SCORE;
 }
 
-// FUNCTIONS FOR USER STORY ITE-2 AND USER STORY ITE-3 (Correct exam with 1 or 10 question)
 /**
  * Get the selected answer from a group of radio buttons.
  * @param {string} questionName - The name attribute of the radio button group.
@@ -221,6 +220,8 @@ function resetAnswer(questionNumber) {
     setTextContent(`grademessage${questionNumber}`, "");
 }
 
+// FUNCTIONS FOR USER STORY ITE-4 and ITE-5 (calculate and display the final score)
+
 /**
  * Calculate the final exam score, ensuring no negative values.
  * @param {number} examScore - The raw exam score.
@@ -231,6 +232,7 @@ function calculateFinalScore(examScore) {
         return 0;
     } else return examScore;
 }
+
 
 /**
  * Display the final exam score.
