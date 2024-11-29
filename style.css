@@ -1,152 +1,155 @@
-/* Reset de márgenes y paddings para todos los elementos */
+/* Reset margins and paddings for all elements */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Estilo para el cuerpo del documento */
+/* Style for the document body */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f0f9ff; /* Azul cielo claro */
-    color: #333; /* Color de texto */
+    background: linear-gradient(135deg, #f0f9ff, #e0f7fa); /* Subtle gradient for a dynamic look */
+    color: #333; /* Text color */
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Asegura que el cuerpo ocupe al menos la altura completa de la ventana */
+    min-height: 100vh; /* Ensures the body takes at least the full height of the viewport */
 }
 
-/* Estilo para el encabezado */
+/* Style for the header */
 #header {
     text-align: center;
-    padding: 2% 0; /* Padding superior e inferior en porcentaje */
-    background-color: #87ceeb; /* Azul cielo */
+    padding: 2% 0; /* Top and bottom padding in percentage */
+    background-color: #007bb5; /* Deep sky blue */
     color: white;
+    border-bottom: 5px solid #004f73; /* Adds a visual separator */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Estilo para el mensaje de bienvenida */
+/* Style for the welcome message */
 #welcomemessage {
     text-align: center;
-    padding: 2% 0; /* Padding superior e inferior en porcentaje */
-    color: #484848;
-}
-
-/* Estilo para el mensaje de error */
-#errormessage {
-    text-align: center;
-    padding: 1% 0; /* Padding superior e inferior en porcentaje */
-    color: #b81313;
-}
-
-/* Estilo para la puntuación de la respuesta */
-#grademessage {
-    text-align: center;
-    padding: 1% 0; /* Padding superior e inferior en porcentaje */
+    padding: 2% 0; /* Top and bottom padding in percentage */
+    font-size: 1.2em;
     color: #00695c;
 }
 
-/* Estilo para las secciones */
-section {
-    margin: 2% auto; /* Margen superior e inferior en porcentaje */
-    padding: 5%; /* Padding en porcentaje */
-    border-radius: 8px;
-    width: 95%;
-    background-color: #e0f7fa; /* Verde agua */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    flex-grow: 1; /* Permite que las secciones crezcan y ocupen el espacio disponible */
+/* Style for the error message */
+#errormessage {
+    text-align: center;
+    padding: 1% 0; /* Top and bottom padding in percentage */
+    color: #b81313;
+    font-weight: bold;
 }
 
-/* Estilo para los encabezados dentro de las secciones */
+/* Style for grade messages */
+#grademessage {
+    padding: 1% 0; /* Top and bottom padding in percentage */
+    color: #00695c;
+    font-style: italic;
+    border-top: 2px solid #b2dfdb; /* Adds separation from the question */
+    margin-top: 10px;
+}
+
+/* Style for final score message */
+#gradeexammessage {
+    text-align: center;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* Style for the question paragraph */
+.question {
+    font-weight: bold;
+    font-size: 1.1em;
+    color: #004f73;
+    margin-bottom: 10px;
+}
+
+/* Style for sections */
+section {
+    margin: 2% auto; /* Top and bottom margin in percentage */
+    padding: 5%; /* Padding in percentage */
+    border-radius: 12px;
+    width: 90%;
+    background: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    flex-grow: 1; /* Allows sections to grow and occupy available space */
+}
+
+/* Style for section headers */
 h2 {
     margin-bottom: 15px;
-    color: #00695c; /* Verde claro */
+    color: #00796b;
+    border-bottom: 2px solid #b2dfdb;
+    display: inline-block;
+    padding-bottom: 5px;
 }
 
-/* Estilo para todos los formularios */
+/* Style for all forms */
 form {
     display: flex;
     flex-direction: column;
 }
 
-/* Estilo para todos los campos de entrada (input) */
-input {
+/* Style for input fields */
+input, select {
     padding: 10px;
     margin-bottom: 10px;
-    border: 1px solid #b2dfdb; /* Verde claro */
+    border: 1px solid #b2dfdb; /* Light green */
     border-radius: 4px;
-    transition: border-color 0.3s ease;
-    width: 100%; /* Hace que el input ocupe todo el ancho disponible */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    width: 100%; /* Makes input occupy the full available width */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Cambio de color en el foco de los campos de entrada */
-input:focus {
-    border-color: #00796b; /* Verde oscuro */
+/* Input focus effects */
+input:focus, select:focus {
+    border-color: #00796b; /* Dark green */
+    box-shadow: 0 0 6px rgba(0, 121, 107, 0.5);
     outline: none;
 }
 
-/* Estilo para los elementos select */
-select {
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #b2dfdb; /* Verde claro */
-    border-radius: 4px;
-    background-color: white;
-    transition: border-color 0.3s ease;
-    width: 100%; /* Hace que el select ocupe todo el ancho disponible */
-}
-
-/* Cambio de color en el foco de los elementos select */
-select:focus {
-    border-color: #00796b; /* Verde oscuro */
-    outline: none;
-}
-
-/* Estilo para los párrafos dentro de los formularios */
-form p {
-    margin-bottom: 10px;
-    color: #666; /* Color de texto gris */
-}
-
-/* Estilo para los botones */
+/* Style for buttons */
 button {
     padding: 12px;
-    background-color: #4caf50; /* Verde claro */
+    background-color: #4caf50; /* Light green */
     color: white;
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease; /* Efecto suave */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth effect */
     width: 25%; 
     text-align: center;
-    margin: 10px auto; /* Espaciado vertical y centrado */
-    display: block; /* Centra los botones */
+    margin: 10px auto; /* Vertical spacing and centering */
+    display: block; /* Centers buttons */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Cambio de color en el hover del botón */
+/* Hover effect for buttons */
 button:hover {
     font-weight: bold;
-    background-color: #388e3c; /* Verde oscuro */
-    transform: scale(1.05); /* Pequeño efecto de agrandamiento */
+    background-color: #388e3c; /* Dark green */
+    transform: scale(1.05); /* Slight enlargement effect */
 }
 
-/* Efecto al hacer clic */
+/* Click effect for buttons */
 button:active {
-    background-color: #3a7e3d; /* Verde más oscuro */
-    transform: scale(0.95); /* Reducción para un efecto de clic */
+    background-color: #3a7e3d; /* Darker green */
+    transform: scale(0.95); /* Reduction for click effect */
 }
 
-
-/* Estilo para el botón 'Reset' */
+/* Style for the reset button */
 button.reset-btn {
-    background-color: #ff5722; /* Naranja atractivo */
+    background-color: #ff5722; /* Vibrant orange */
     margin-bottom: 30px;
 }
 
-/* Cambio de color en hover */
+/* Reset button hover effect */
 button.reset-btn:hover {
-    background-color: #e64a19; /* Naranja más oscuro */
+    background-color: #e64a19; /* Darker orange */
 }
 
-/* Color más oscuro al hacer clic al botón 'Reset' */
+/* Click effect for the reset button */
 button.reset-btn:active {
     background-color: #d84315; 
 }
@@ -155,31 +158,38 @@ button.reset-btn:active {
     text-align: left;
 }
 
+/* Style for radio options */
 .radio-option {
-    display: grid; /* Usamos grid para controlar mejor la alineación */
-    grid-template-columns: auto 1fr; /* Primera columna para el botón, segunda para el texto */
-    align-items: start; /* Asegura la alineación superior del texto largo */
-    column-gap: 10px; /* Espaciado entre el botón y el texto */
-    margin-bottom: 10px; /* Espaciado entre las opciones */
+    display: grid; /* Grid layout for better alignment */
+    grid-template-columns: auto 1fr; /* First column for the button, second for the text */
+    align-items: start; /* Ensures text aligns at the top for long labels */
+    column-gap: 10px; /* Spacing between button and text */
+    margin-bottom: 10px; /* Spacing between options */
+    background: #e0f7fa; /* Adds a background for better separation */
+    padding: 8px;
+    border-radius: 4px;
 }
 
+/* Radio input alignment */
 .radio-option input[type="radio"] {
-    justify-self: start; /* Fuerza que el botón quede pegado al margen izquierdo */
+    justify-self: start; /* Forces button to align with the left margin */
 }
 
+/* Label text alignment */
 .radio-option label {
-    margin: 0; /* Eliminamos márgenes extra */
-    text-align: left; /* Asegura que el texto esté alineado a la izquierda */
-    white-space: normal; /* Permite saltos de línea para textos largos */
+    margin: 0; /* Removes extra margins */
+    text-align: left; /* Ensures text is left-aligned */
+    white-space: normal; /* Allows line breaks for long text */
 }
 
-/* Estilo para el pie de página */
+/* Style for the footer */
 footer {
     text-align: center;
     margin-top: 20px;
-    padding: 2% 0; /* Padding superior e inferior en porcentaje */
-    background-color: #87ceeb; /* Azul cielo */
+    padding: 2% 0; /* Top and bottom padding in percentage */
+    background-color: #004f73;
     color: white;
-    position: relative; /* Asegura que el footer esté correctamente posicionado */
-    bottom: 0; /* Mantiene el footer en la parte inferior */
+    position: relative; /* Ensures footer is correctly positioned */
+    bottom: 0; /* Keeps footer at the bottom */
+    font-size: 0.9em;
 }
