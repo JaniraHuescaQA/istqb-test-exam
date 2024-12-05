@@ -237,17 +237,3 @@ function displayFinalScore(finalScore) {
     setTextContent("gradeexammessage", message);
     setTextColor("gradeexammessage", color);
 }
-
-/*
- * Reset the exam form by clearing selected answers and resetting grade messages.
-function resetExam() {
-    const RADIOS = document.querySelectorAll('input[type="radio"]');
-    RADIOS.forEach(function (radio) {
-        radio.checked = false;
-    });
-
-    for (let i = 1; i <= 10; i++) {
-        setTextContent(`grademessage${i}`, "");
-    }
-}
- */
