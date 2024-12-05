@@ -86,14 +86,14 @@ hideElement("exam");
  */
 function signUpStudentValidation() {
     const SIGNUP_FORM = getElement("signupform");
-    const FIRST_NAME = getInputValue("firstname");
-    const LAST_NAME = getInputValue("lastname");
     const ERROR_MESSAGE_ELEMENT = getElement("errormessage");
 
     if (SIGNUP_FORM && SIGNUP_FORM.checkValidity()) {
+        const FIRST_NAME = getInputValue("firstname");
+        const LAST_NAME = getInputValue("lastname");
         signUpStudent(FIRST_NAME, LAST_NAME);
     } else {
-        showErrorMessage(FIRST_NAME, LAST_NAME, ERROR_MESSAGE_ELEMENT);
+        showErrorMessage(ERROR_MESSAGE_ELEMENT);
     }
 }
 
@@ -112,48 +112,31 @@ function signUpStudent(firstName, lastName) {
 }
 
 /**
- * Show an appropriate error message based on user input.
- * @param {string} firstName - The first name input value.
- * @param {string} lastName - The last name input value.
- * @param {HTMLElement} errorMessageElement - The element to display the error message.
+ * Show a general error message for invalid form inputs.
  */
-function showErrorMessage(firstName, lastName) {
-    let message = validateNameFields(firstName, lastName);
-    setTextContent("errormessage", message);
+function showErrorMessage() {
+    const ERROR_MESSAGE = "Error: All fields are mandatory and must have a length between 3 and 30 characters.";
+    setTextContent("errormessage", ERROR_MESSAGE);
     showElement("errormessage");
-}
-
-/**
- * Validate the first and last name fields and return an error message.
- * @param {string} firstName - The first name input value.
- * @param {string} lastName - The last name input value.
- * @returns {string} The error message, or an empty string if valid.
- */
-function validateNameFields(firstName, lastName) {
-    if (!firstName || !lastName) {
-        return "Error: All fields are mandatory.";
-    }
-    if (firstName.length < 3 || lastName.length < 3 || firstName.length > 30 || lastName.length > 30) {
-        return "Error: The number of characters must be between 3 and 30, inclusive.";
-    }
-    return "Error: Incorrect input.";
 }
 
 
 // FUNCTIONS FOR USER STORY ITE-2 AND USER STORY ITE-3 (Correct exam with 1 and 10 questions)
 
 /**
- * Grade all questions by iterating through them.
+ * Grade all questions by iterating through them and calculate the final score.
  */
 function finishExam() {
     const CORRECT_ANSWERS = ["C", "A", "A", "B", "C", "C", "A", "C", "A", "A"];
     let examScore = 0; // Reset the score for each attempt
 
-    for (let i = 1; i <= CORRECT_ANSWERS.length; i++) {
-        const QUESTION_SCORE = gradeQuestion(i, CORRECT_ANSWERS[i - 1]);
+    // Iterate through each question
+    for (let questionNumber = 1; questionNumber <= CORRECT_ANSWERS.length; questionNumber++) {
+        const QUESTION_SCORE = gradeQuestion(questionNumber, CORRECT_ANSWERS[questionNumber - 1]);
         examScore += QUESTION_SCORE;
     }
 
+    // Calculate and display the final score
     const FINAL_SCORE = calculateFinalScore(examScore);
     displayFinalScore(FINAL_SCORE);
 }
@@ -188,13 +171,16 @@ function getCheckedAnswer(questionName) {
  * @returns {number} The calculated score.
  */
 function calculateQuestionScore(userAnswer, correctAnswer) {
+    let score;
+
     if (!userAnswer) {
-        return 0; // No answer
+        score = 0; // No answer
+    } else if (userAnswer === correctAnswer) {
+        score = 2; // Correct answer
+    } else {
+        score = -1; // Incorrect answer
     }
-    if (userAnswer === correctAnswer) {
-        return 2; // Correct answer
-    }
-    return -1; // Incorrect answer
+    return score;
 }
 
 /**
@@ -209,13 +195,7 @@ function displayQuestionScore(questionNumber, score) {
  * Reset the selected answer for a specific question.
  * @param {number} questionNumber - The question number to reset.
  */
-function resetAnswer(questionNumber) {
-    // Get all radio buttons for the specific question
-    const RADIOS = document.querySelectorAll(`input[name="questionanswers${questionNumber}"]`);
-
-    // Uncheck all radio buttons
-    RADIOS.forEach(radio => (radio.checked = false));
-
+function resetGradeMessage(questionNumber) {
     // Clear the grade message for this question
     setTextContent(`grademessage${questionNumber}`, "");
 }
@@ -228,9 +208,14 @@ function resetAnswer(questionNumber) {
  * @returns {number} The final score.
  */
 function calculateFinalScore(examScore) {
+    let finalScore;
+
     if (examScore < 0) {
-        return 0;
-    } else return examScore;
+        finalScore = 0;
+    } else {
+        finalScore = examScore;
+    } 
+    return finalScore;
 }
 
 
@@ -240,13 +225,17 @@ function calculateFinalScore(examScore) {
  */
 function displayFinalScore(finalScore) {
     const PASS_MARK = 12;
+
+    let message = `Exam score: ${finalScore}. FAIL`;
+    let color = "red";
+
     if (finalScore >= PASS_MARK) {
-        setTextContent("gradeexammessage", `Exam score: ${finalScore}. PASS`);
-        setTextColor("gradeexammessage", "green");
-    } else {
-        setTextContent("gradeexammessage", `Exam score: ${finalScore}. FAIL`);
-        setTextColor("gradeexammessage", "red");
-    }
+        message = `Exam score: ${finalScore}. PASS`;
+        color = "green"; 
+    } 
+
+    setTextContent("gradeexammessage", message);
+    setTextColor("gradeexammessage", color);
 }
 
 /*

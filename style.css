@@ -81,7 +81,7 @@ h2 {
     margin-bottom: 15px;
     color: #00796b;
     border-bottom: 2px solid #b2dfdb;
-    display: inline-block;
+    display: block;
     padding-bottom: 5px;
 }
 
