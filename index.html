@@ -16,15 +16,15 @@
 
     <section id="signup">
         <form id="signupform">
-            <h2>ISTQB Exam Sign Up</h2>
-            <input type="text" id="firstname" placeholder="First name" pattern="[A-Za-z ]+" minlength="3" maxlength="30"
+            <h2 data-testid="signuptitle">ISTQB Exam Sign Up</h2>
+            <input data-testid="firstname" type="text" id="firstname" placeholder="First name" pattern="[A-Za-z ]+" minlength="3" maxlength="30"
                 required>
-            <input type="text" id="lastname" placeholder="Last name" pattern="[A-Za-z ]+" minlength="3" maxlength="30"
+            <input data-testid="lastname" type="text" id="lastname" placeholder="Last name" pattern="[A-Za-z ]+" minlength="3" maxlength="30"
                 required>
-            <button type="button" onclick="signUpStudentValidation()">Sign Up</button>
-            <div id="errormessage"></div>
+            <button data-testid="signupstudentbutton" type="button" onclick="signUpStudentValidation()">Sign Up</button>
+            <div data-testid="signuperrormessage" id="errormessage"></div>
         </form>
-        <div id="welcomemessage"></div>
+        <div data-testid="signupwelcomemessage" id="welcomemessage"></div>
     </section>
 
     <section id="exam">
