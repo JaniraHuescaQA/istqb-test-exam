@@ -88,14 +88,22 @@ function signUpStudentValidation() {
     const SIGNUP_FORM = getElement("signupform");
     const ERROR_MESSAGE_ELEMENT = getElement("errormessage");
 
+    if (SIGNUP_FORM) {
+        console.log("Validating form...");
+        console.log("Form validity state:", SIGNUP_FORM.checkValidity());
+    }
+
     if (SIGNUP_FORM && SIGNUP_FORM.checkValidity()) {
         const FIRST_NAME = getInputValue("firstname");
         const LAST_NAME = getInputValue("lastname");
+        console.log("Sign-up successful with:", FIRST_NAME, LAST_NAME);
         signUpStudent(FIRST_NAME, LAST_NAME);
     } else {
+        console.log("Form invalid. Showing error message.");
         showErrorMessage(ERROR_MESSAGE_ELEMENT);
     }
 }
+
 
 /**
  * Handle successful sign-up logic, including showing a welcome message.
