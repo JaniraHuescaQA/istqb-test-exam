@@ -85,6 +85,7 @@ hideElement("exam");
  * Validate the sign-up form and proceed to the next step if valid.
  */
 function signUpStudentValidation() {
+    const SIGNUP_FORM = getElement("signupform");
     const FIRST_NAME = getInputValue("firstname");
     const LAST_NAME = getInputValue("lastname");
 
