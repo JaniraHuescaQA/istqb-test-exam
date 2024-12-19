@@ -85,25 +85,17 @@ hideElement("exam");
  * Validate the sign-up form and proceed to the next step if valid.
  */
 function signUpStudentValidation() {
-    const SIGNUP_FORM = getElement("signupform");
-    const ERROR_MESSAGE_ELEMENT = getElement("errormessage");
+    const FIRST_NAME = getInputValue("firstname");
+    const LAST_NAME = getInputValue("lastname");
 
-    if (SIGNUP_FORM) {
-        console.log("Validating form...");
-        console.log("Form validity state:", SIGNUP_FORM.checkValidity());
+    if (SIGNUP_FORM && (!FIRST_NAME || FIRST_NAME.length < 3 || FIRST_NAME.length > 30 || !LAST_NAME || LAST_NAME.length < 3 || LAST_NAME.length > 30)) {
+        setTextContent("errormessage", "Error: All fields are mandatory and must have a length between 3 and 30 characters.");
+        showElement("errormessage");
+        return;
     }
 
-    if (SIGNUP_FORM && SIGNUP_FORM.checkValidity()) {
-        const FIRST_NAME = getInputValue("firstname");
-        const LAST_NAME = getInputValue("lastname");
-        console.log("Sign-up successful with:", FIRST_NAME, LAST_NAME);
-        signUpStudent(FIRST_NAME, LAST_NAME);
-    } else {
-        console.log("Form invalid. Showing error message.");
-        showErrorMessage(ERROR_MESSAGE_ELEMENT);
-    }
+    signUpStudent(FIRST_NAME, LAST_NAME);
 }
-
 
 /**
  * Handle successful sign-up logic, including showing a welcome message.
