@@ -28,226 +28,226 @@
     </section>
 
     <section data-testid="examsection" id="exam">
-        <h2>ISTQB Exam</h2>
+        <h2 data-testid="exam-title">ISTQB Exam</h2>
 
-        <form id="question1-form">
-            <p class="question" id="question1">#1. Which of the following statements describe a valid test
+        <form data-testid="question1-form" id="question1-form">
+            <p class="question" data-testid="question1-text" id="question1">#1. Which of the following statements describe a valid test
                 objective?</p>
             <div class="radio-option">
-                <input type="radio" name="questionanswers1" id="q1-a" value="A">
+                <input type="radio" name="questionanswers1" data-testid="q1-a" id="q1-a" value="A">
                 <label for="a">A. To prove that there are no unfixed defects in the system under test</label>
             </div>
             <div class="radio-option">
-                <input type="radio" name="questionanswers1" id="q1-b" value="B">
+                <input type="radio" name="questionanswers1" data-testid="q1-b" id="q1-b" value="B">
                 <label for="b">B. To prove that there will be no failures after the implementation of the system
                     into
                     production</label>
             </div>
             <div class="radio-option">
-                <input type="radio" name="questionanswers1" id="q1-c" value="C">
+                <input type="radio" name="questionanswers1" data-testid="q1-c" id="q1-c" value="C">
                 <label for="c">C. To reduce the risk level of the test object and to build confidence in the quality
                     level</label>
             </div>
-            <p id="grademessage1"></p>
-            <button type="reset" class="reset-btn" onclick="resetGradeMessage(1)">Reset Answer</button>
+            <p data-testid="grade-message1" id="grademessage1"></p>
+            <button type="reset" class="reset-btn" data-testid="reset-button1" onclick="resetGradeMessage(1)">Reset Answer</button>
         </form>
 
-        <form id="question2-form">
-            <p class="question" id="question2">#2. Which of the following options shows an example of test
+        <form data-testid="question2-form" id="question2-form">
+            <p class="question" data-testid="question2-text" id="question2">#2. Which of the following options shows an example of test
                 activities that contribute to success?</p>
             <div class="radio-option">
-                <input type="radio" name="questionanswers2" id="q2-a" value="A">
+                <input type="radio" name="questionanswers2" data-testid="q2-a" id="q2-a" value="A">
                 <label for="a">A. Having testers involved during various software development lifecycle (SDLC)
                     activities will help to detect defects in work products</label>
             </div>
             <div class="radio-option">
-                <input type="radio" name="questionanswers2" id="q2-b" value="B">
+                <input type="radio" name="questionanswers2" data-testid="q2-b" id="q2-b" value="B">
                 <label for="b">B. Testers try not to disturb the developers while coding, so that the developers
                     write better code</label>
             </div>
             <div class="radio-option">
-                <input type="radio" name="questionanswers2" id="q2-c" value="C">
+                <input type="radio" name="questionanswers2" data-testid="q2-c" id="q2-c" value="C">
                 <label for="c">C. Testers collaborating with end users help to improve the quality of defect reports
                     during component integration and system testing</label>
             </div>
-            <p id="grademessage2"></p>
-            <button type="reset" class="reset-btn" onclick="resetGradeMessage(2)">Reset Answer</button>
+            <p data-testid="grade-message2" id="grademessage2"></p>
+            <button type="reset" class="reset-btn" data-testid="reset-button2" onclick="resetGradeMessage(2)">Reset Answer</button>
         </form>
 
-        <form id="question3-form">
-            <p class="question" id="question3">#3. You have been assigned as a tester to a team producing a new
+        <form data-testid="question3-form" id="question3-form">
+            <p class="question" data-testid="question3-text" id="question3">#3. You have been assigned as a tester to a team producing a new
                 system incrementally. You have noticed that no changes have been made to the existing regression
                 test cases for several iterations and no new regression defects were identified. Your manager is
                 happy, but you are not. Which testing Fprinciple explains your skepticism?</p>
             <div class="radio-option">
-                <input type="radio" name="questionanswers3" id="q3-a" value="A">
+                <input type="radio" name="questionanswers3" data-testid="q3-a" id="q3-a" value="A">
                 <label for="a">A. Tests wear out</label>
             </div>
             <div class="radio-option">
-                <input type="radio" name="questionanswers3" id="q3-b" value="B">
+                <input type="radio" name="questionanswers3" data-testid="q3-b" id="q3-b" value="B">
                 <label for="b">B. Absence-of-errors fallacy</label>
             </div>
             <div class="radio-option">
-                <input type="radio" name="questionanswers3" id="q3-c" value="C">
+                <input type="radio" name="questionanswers3" data-testid="q3-c" id="q3-c" value="C">
                 <label for="c">C. Defects cluster together</label>
             </div>
-            <p id="grademessage3"></p>
-            <button type="reset" class="reset-btn" onclick="resetGradeMessage(3)">Reset Answer</button>
+            <p data-testid="grade-message3" id="grademessage3"></p>
+            <button type="reset" class="reset-btn" data-testid="reset-button3" onclick="resetGradeMessage(3)">Reset Answer</button>
         </form>
 
-        <form id="question4-form">
-            <p class="question" id="question4">#4. You work in a team that develops a mobile application for food
+        <form data-testid="question4-form" id="question4-form">
+            <p class="question" data-testid="question4-text" id="question4">#4. You work in a team that develops a mobile application for food
                 ordering. In the current iteration the team decided to implement the payment functionality. Which of
                 the following activities is a part of test analysis?</p>
             <div class="radio-option">
-                <input type="radio" name="questionanswers4" id="q4-a" value="A">
+                <input type="radio" name="questionanswers4" data-testid="q4-a" id="q4-a" value="A">
                 <label for="a">A. Estimating that testing the integration with the payment service will take 8
                     person-days</label>
             </div>
             <div class="radio-option">
-                <input type="radio" name="questionanswers4" id="q4-b" value="B">
+                <input type="radio" name="questionanswers4" data-testid="q4-b" id="q4-b" value="B">
                 <label for="b">B. Deciding that the team should test if it is possible to properly share payment
                     between many users</label>
             </div>
             <div class="radio-option">
-                <input type="radio" name="questionanswers4" id="q4-c" value="C">
+                <input type="radio" name="questionanswers4" data-testid="q4-c" id="q4-c" value="C">
                 <label for="c">C. Using boundary value analysis (BVA) to derive the test data for the test cases
                     that check the correct payment processing for the minimum allowed amount to be paid</label>
             </div>
-            <p id="grademessage4"></p>
-            <button type="reset" class="reset-btn" onclick="resetGradeMessage(4)">Reset Answer</button>
+            <p data-testid="grade-message4" id="grademessage4"></p>
+            <button type="reset" class="reset-btn" data-testid="reset-button4" onclick="resetGradeMessage(4)">Reset Answer</button>
         </form>
 
-        <form id="question5-form">
-            <p class="question" id="question5">#5. Which of the following statements BEST describes the acceptance
+        <form data-testid="question5-form" id="question5-form">
+            <p class="question" data-testid="question5-text" id="question5">#5. Which of the following statements BEST describes the acceptance
                 test-driven development (ATDD) approach?</p>
             <div class="radio-option">
-                <input type="radio" name="questionanswers5" id="q5-a" value="A">
+                <input type="radio" name="questionanswers5" data-testid="q5-a" id="q5-a" value="A">
                 <label for="a">A. In ATDD, acceptance criteria are typically created based on the given/when/then
                     format</label>
             </div>
             <div class="radio-option">
-                <input type="radio" name="questionanswers5" id="q5-b" value="B">
+                <input type="radio" name="questionanswers5" data-testid="q5-b" id="q5-b" value="B">
                 <label for="b">B. In ATDD, test cases are mainly created at component testing and are
                     code-oriented</label>
             </div>
             <div class="radio-option">
-                <input type="radio" name="questionanswers5" id="q5-c" value="C">
+                <input type="radio" name="questionanswers5" data-testid="q5-c" id="q5-c" value="C">
                 <label for="c">C. In ATDD, tests are created, based on acceptance criteria to drive the development
                     of the related software</label>
             </div>
-            <p id="grademessage5"></p>
-            <button type="reset" class="reset-btn" onclick="resetGradeMessage(5)">Reset Answer</button>
+            <p data-testid="grade-message5" id="grademessage5"></p>
+            <button type="reset" class="reset-btn" data-testid="reset-button5" onclick="resetGradeMessage(5)">Reset Answer</button>
         </form>
 
-        <form id="question6-form">
-            <p class="question" id="question6">#6. Which of the arguments below would you use to convince your
+        <form data-testid="question6-form" id="question6-form">
+            <p class="question" data-testid="question6-text" id="question6">#6. Which of the arguments below would you use to convince your
                 manager to organize retrospectives at the end of each release cycle?</p>
             <div class="radio-option">
-                <input type="radio" name="questionanswers6" id="q6-a" value="A">
+                <input type="radio" name="questionanswers6" data-testid="q6-a" id="q6-a" value="A">
                 <label for="a">A. Retrospectives are very popular these days and clients would appreciate it if we
                     added them to our processes</label>
             </div>
             <div class="radio-option">
-                <input type="radio" name="questionanswers6" id="q6-b" value="B">
+                <input type="radio" name="questionanswers6" data-testid="q6-b" id="q6-b" value="B">
                 <label for="b">B. Organizing retrospectives will save the organization money because without them
                     end user representatives do not provide immediate feedback about the product</label>
             </div>
             <div class="radio-option">
-                <input type="radio" name="questionanswers6" id="q6-c" value="C">
+                <input type="radio" name="questionanswers6" data-testid="q6-c" id="q6-c" value="C">
                 <label for="c">C. Process weaknesses identified during the retrospective can be analyzed and serve
                     as a to do list for the organization's continuous process improvement program</label>
             </div>
-            <p id="grademessage6"></p>
-            <button type="reset" class="reset-btn" onclick="resetGradeMessage(6)">Reset Answer</button>
+            <p data-testid="grade-message6" id="grademessage6"></p>
+            <button type="reset" class="reset-btn" data-testid="reset-button6" onclick="resetGradeMessage(6)">Reset Answer</button>
         </form>
 
-        <form id="question7-form">
-            <p class="question" id="question7">#7. Which of the following is NOT a benefit of static testing?</p>
+        <form data-testid="question7-form" id="question7-form">
+            <p class="question" data-testid="question7-text" id="question7">#7. Which of the following is NOT a benefit of static testing?</p>
             <div class="radio-option">
-                <input type="radio" name="questionanswers7" id="q7-a" value="A">
+                <input type="radio" name="questionanswers7" data-testid="q7-a" id="q7-a" value="A">
                 <label for="a">A. Having less expensive defect management due to the ease of detecting defects later
                     in the SDLC</label>
             </div>
             <div class="radio-option">
-                <input type="radio" name="questionanswers7" id="q7-b" value="B">
+                <input type="radio" name="questionanswers7" data-testid="q7-b" id="q7-b" value="B">
                 <label for="b">B. Fixing defects found during static testing is generally much less expensive than
                     fixing defects found during dynamic testing</label>
             </div>
             <div class="radio-option">
-                <input type="radio" name="questionanswers7" id="q7-c" value="C">
+                <input type="radio" name="questionanswers7" data-testid="q7-c" id="q7-c" value="C">
                 <label for="c">C. Finding coding defects that might not have been found by only performing dynamic
                     testing</label>
             </div>
-            <p id="grademessage7"></p>
-            <button type="reset" class="reset-btn" onclick="resetGradeMessage(7)">Reset Answer</button>
+            <p data-testid="grade-message7" id="grademessage7"></p>
+            <button type="reset" class="reset-btn" data-testid="reset-button7" onclick="resetGradeMessage(7)">Reset Answer</button>
         </form>
 
-        <form id="question8-form">
-            <p class="question" id="question8">#8. Which of the following is a characteristic of experience-based
+        <form data-testid="question8-form" id="question8-form">
+            <p class="question" data-testid="question8-text" id="question8">#8. Which of the following is a characteristic of experience-based
                 test techniques?</p>
             <div class="radio-option">
-                <input type="radio" name="questionanswers8" id="q8-a" value="A">
+                <input type="radio" name="questionanswers8" data-testid="q8-a" id="q8-a" value="A">
                 <label for="a">A. Test cases are created based on detailed design information</label>
             </div>
             <div class="radio-option">
-                <input type="radio" name="questionanswers8" id="q8-b" value="B">
+                <input type="radio" name="questionanswers8" data-testid="q8-b" id="q8-b" value="B">
                 <label for="b">B. Items tested within the interface code section are used to measure
                     coverage</label>
             </div>
             <div class="radio-option">
-                <input type="radio" name="questionanswers8" id="q8-c" value="C">
+                <input type="radio" name="questionanswers8" data-testid="q8-c" id="q8-c" value="C">
                 <label for="c">C. The techniques heavily rely on the tester's knowledge of the software and the
                     business domain</label>
             </div>
-            <p id="grademessage8"></p>
-            <button type="reset" class="reset-btn" onclick="resetGradeMessage(8)">Reset Answer</button>
+            <p data-testid="grade-message8" id="grademessage8"></p>
+            <button type="reset" class="reset-btn" data-testid="reset-button8" onclick="resetGradeMessage(8)">Reset Answer</button>
         </form>
 
-        <form id="question9-form">
-            <p class="question" id="question9">#9. Your test suite achieved 100% statement coverage. What is the
+        <form data-testid="question9-form" id="question9-form">
+            <p class="question" data-testid="question9-text" id="question9">#9. Your test suite achieved 100% statement coverage. What is the
                 consequence of this fact?</p>
             <div class="radio-option">
-                <input type="radio" name="questionanswers9" id="q9-a" value="A">
+                <input type="radio" name="questionanswers9" data-testid="q9-a" id="q9-a" value="A">
                 <label for="a">A. Each instruction in the code that contains a defect has been executed at least
                     once</label>
             </div>
             <div class="radio-option">
-                <input type="radio" name="questionanswers9" id="q9-b" value="B">
+                <input type="radio" name="questionanswers9" data-testid="q9-b" id="q9-b" value="B">
                 <label for="b">B. Any test suite containing more test cases than your test suite will also achieve
                     100% statement coverage</label>
             </div>
             <div class="radio-option">
-                <input type="radio" name="questionanswers9" id="q9-c" value="C">
+                <input type="radio" name="questionanswers9" data-testid="q9-c" id="q9-c" value="C">
                 <label for="c">C. Each path in the code has been executed at least once</label>
             </div>
-            <p id="grademessage9"></p>
-            <button type="reset" class="reset-btn" onclick="resetGradeMessage(9)">Reset Answer</button>
+            <p data-testid="grade-message9" id="grademessage9"></p>
+            <button type="reset" class="reset-btn" data-testid="reset-button9" onclick="resetGradeMessage(9)">Reset Answer</button>
         </form>
 
-        <form id="question10-form">
-            <p class="question" id="question10">#10. Which of the following BEST describes the concept behind error
+        <form data-testid="question10-form" id="question10-form">
+            <p class="question" data-testid="question10-text" id="question10">#10. Which of the following BEST describes the concept behind error
                 guessing?</p>
             <div class="radio-option">
-                <input type="radio" name="questionanswers10" id="q10-a" value="A">
+                <input type="radio" name="questionanswers10" data-testid="q10-a" id="q10-a" value="A">
                 <label for="a">A. Error guessing involves using your knowledge and experience of defects found in
                     the past and typical errors made by developers</label>
             </div>
             <div class="radio-option">
-                <input type="radio" name="questionanswers10" id="q10-b" value="B">
+                <input type="radio" name="questionanswers10" data-testid="q10-b" id="q10-b" value="B">
                 <label for="b">B. Error guessing involves using your personal experience of development and the
                     errors you made as a developer</label>
             </div>
             <div class="radio-option">
-                <input type="radio" name="questionanswers10" id="q10-c" value="C">
+                <input type="radio" name="questionanswers10" data-testid="q10-c" id="q10-c" value="C">
                 <label for="c">C. Error guessing requires you to imagine that you are the user of the test object
                     and to guess errors the user could make interacting with it</label>
             </div>
-            <p id="grademessage10"></p>
-            <button type="reset" class="reset-btn" onclick="resetGradeMessage(10)">Reset Answer</button>
+            <p data-testid="grade-message10" id="grademessage10"></p>
+            <button type="reset" class="reset-btn" data-testid="reset-button10" onclick="resetGradeMessage(10)">Reset Answer</button>
         </form>
-        <button type="button" onclick="finishExam()">Finish Exam</button>
-        <div id="gradeexammessage"></div>
+        <button type="button" data-testid="finish-exam-button" onclick="finishExam()">Finish Exam</button>
+        <div data-testid="grade-exam-message" id="gradeexammessage"></div>
     </section>
 
     <footer>
